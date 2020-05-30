@@ -9,6 +9,10 @@ Writing Autograder Tests
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+   :hidden:
+
+   doctests
+   comparison
 
 This guide considers best-practices for writing Python autograder tests. While this guide is focused mainly on ok-formatted tests (those used in Berkeley's OkPy_ and Otter_ autograders), some of the ideas discussed are applicable to all Pythonic autograders and the tests written for them. The topics discussed herein include test formatting, ok-formatted test files, structuring tests, and working with randomness.
 
