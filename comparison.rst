@@ -3,8 +3,8 @@ Comparisons
 
 A fundamental aspect of doctests is that the pass/fail behavior is determined by **string comparisons**. When a doctest is run, the code provided in the Python interpreter format is executed line-by-line and then the output of that line is expected to equal the output shown in the doctest.
 
-Return Values
--------------
+Return Value Types
+------------------
 
 ``None``
 ++++++++
@@ -117,4 +117,23 @@ String comparisons are relatively easy and the most straightfoward because docte
 other data types
 ++++++++++++++++
 
-Other data types don't have very many complexities surrounding them. For custom objects, note what their ``__repr__`` function returns and use that. When creating and testing custom classes, always use a custom ``__repr__`` function, otherwise the representation will contain the pointer to the object in memory, which changes between sessions. **Always test your tests in a Python interpeter if you're unsure about the string representation of an object.** Don't use a Jupyter Notebook or IPython, because they don't necessary have the same output and they have different prompts.
+Other data types don't have very many complexities surrounding them. For custom objects, note what their ``__repr__`` function returns and use that. When creating and testing custom classes, always use a custom ``__repr__`` function, otherwise the representation will contain the pointer to the object in memory, which changes between sessions. 
+
+.. code-block:: python
+
+    >>> class Point:
+    ...     def __init__(self, x, y):
+    ...         self.x = x
+    ...         self.y = y
+    >>> Point(1, 2)         # this has no __repr__, so it will have the object id 
+    <__main__.Point object at 0x102cb3ac8>
+    >>> class OtherPoint:
+    ...     def __init__(self, x, y):
+    ...         self.x = x
+    ...         self.y = y
+    ...     def __repr__(self):
+    ...         return f"Point(x={self.x}, y={self.y})"
+    >>> OtherPoint(1, 2)   # this has a __repr__, so it will be printed without the id
+    Point(x=1, y=2)
+
+**Always test your tests in a Python interpeter if you're unsure about the string representation of an object.** Don't use a Jupyter Notebook or IPython, because they don't necessary have the same output and they have different prompts.
