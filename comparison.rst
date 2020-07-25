@@ -132,8 +132,8 @@ Other data types don't have very many complexities surrounding them. For custom 
     ...         self.x = x
     ...         self.y = y
     ...     def __repr__(self):
-    ...         return f"Point(x={self.x}, y={self.y})"
+    ...         return f"OtherPoint(x={self.x}, y={self.y})"
     >>> OtherPoint(1, 2)   # this has a __repr__, so it will be printed without the id
-    Point(x=1, y=2)
+    OtherPoint(x=1, y=2)
 
 **Always test your tests in a Python interpeter if you're unsure about the string representation of an object.** Don't use a Jupyter Notebook or IPython, because they don't necessary have the same output and they have different prompts.
