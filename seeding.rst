@@ -56,8 +56,7 @@ manner visible to the students.
 
 .. code-block:: python
 
-    >>> np.random.seed(42)
-    >>> roll_die()
+    >>> roll_value
     4
 
 This method is significantly less elegant and is susceptible to students changing the seed, which could
